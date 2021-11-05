@@ -15,9 +15,11 @@ jobs:
       - image: circleci/ruby:2.6.3-stretch-node
     executor: ruby/default
     steps:
+      - run:
+          name: Install Bundler
+          command: gem install bundler
       - checkout
       - run:
-          command: gem install bundler
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
